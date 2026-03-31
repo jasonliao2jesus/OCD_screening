@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///C:/Users/Jason/OneDrive/Documents/GitHub/colabctl/ocd_screening.html -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文版耶魯-布朗強迫症量表 (Y-BOCS)</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9fbfc;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .question p {
+            font-weight: bold;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        label:hover {
+            background-color: #eaf2f8;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .btn-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #btn-export {
+            background-color: #27ae60;
+            display: none;
+        }
+        #btn-export:hover {
+            background-color: #2ecc71;
+        }
+        #result-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ecf0f1;
+            text-align: center;
+        }
+        .score-display {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .total-score {
+            font-size: 28px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        .severity-label {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .desc {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>中文版耶魯-布朗強迫症量表 (Y-BOCS)</h1>
+
+    <form id="ocd-form">
+        <!-- 強迫思考 -->
+        <h3>第一部分：主訴的【強迫思考】</h3>
+
+        <div class="question" id="q1">
+            <p>1. 您每天花多少時間在強迫思考上？每天強迫思考出現的頻率有多高？</p>
+            <label><input type="radio" name="q1" value="0"> 0 = 完全無強迫思考</label>
+            <label><input type="radio" name="q1" value="1"> 1 = 輕微（少於1小時），或偶爾有。</label>
+            <label><input type="radio" name="q1" value="2"> 2 = 中度（1至3小時），或常常有。</label>
+            <label><input type="radio" name="q1" value="3"> 3 = 重度（多於3小時但不超過8小時），或非常高頻率。</label>
+            <label><input type="radio" name="q1" value="4"> 4 = 極度（多於8小時），或幾乎無時無刻都有。</label>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. 您的強迫思考對社交、學業成就或工作能力有多大的妨礙？</p>
+            <label><input type="radio" name="q2" value="0"> 0 = 不會受妨礙。</label>
+            <label><input type="radio" name="q2" value="1"> 1 = 輕微。稍微妨礙社交或工作活動，但整體表現並未障礙。</label>
+            <label><input type="radio" name="q2" value="2"> 2 = 中度。確實妨礙社交或工作活動，但仍可應付。</label>
+            <label><input type="radio" name="q2" value="3"> 3 = 重度。導致社交或工作表現的障礙。</label>
+            <label><input type="radio" name="q2" value="4"> 4 = 極度。無能力應付社交或工作。</label>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. 您的強迫思考給您帶來多大的苦惱或困擾？</p>
+            <label><input type="radio" name="q3" value="0"> 0 = 沒有。</label>
+            <label><input type="radio" name="q3" value="1"> 1 = 輕微。不會太煩人。</label>
+            <label><input type="radio" name="q3" value="2"> 2 = 中度。覺得很煩，但尚可應付。</label>
+            <label><input type="radio" name="q3" value="3"> 3 = 重度。非常煩人。</label>
+            <label><input type="radio" name="q3" value="4"> 4 = 極度。幾乎一直持續且令人喪志地苦惱。</label>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. 您有多努力對抗強迫思考？您是否嘗試轉移注意力或不去想它呢？</p>
+            <label><input type="radio" name="q4" value="0"> 0 = 一直不斷地努力與之對抗（或症狀很輕微，不需要積極地對抗）。</label>
+            <label><input type="radio" name="q4" value="1"> 1 = 大部分時間都試圖與之對抗（超過一半的時間我都試圖與之對抗）。</label>
+            <label><input type="radio" name="q4" value="2"> 2 = 用些許努力去對抗。</label>
+            <label><input type="radio" name="q4" value="3"> 3 = 屈服於所有的強迫思考，未試圖對抗，但仍有一些不甘心。</label>
+            <label><input type="radio" name="q4" value="4"> 4 = 完全願意屈服於強迫思考。</label>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. 您控制強迫思考的能力有多少？您停止或轉移強迫思考的效果如何？</p>
+            <label><input type="radio" name="q5" value="0"> 0 = 完全控制。我可以完全控制。</label>
+            <label><input type="radio" name="q5" value="1"> 1 = 大多能控制。只要花些力氣與注意力，即能停止或轉移強迫思考。</label>
+            <label><input type="radio" name="q5" value="2"> 2 = 中等度控制。「有時」能停止或轉移強迫思考。</label>
+            <label><input type="radio" name="q5" value="3"> 3 = 控制力弱。很少能成功地停止或消除強迫思考，只能轉移。</label>
+            <label><input type="radio" name="q5" value="4"> 4 = 無法控制。完全不能自主，連轉移一下強迫思考的能力都沒有。</label>
+        </div>
+
+        <!-- 強迫行為 -->
+        <h3>第二部分：主訴的【強迫行為】</h3>
+
+        <div class="question" id="q6">
+            <p>6. 您每天花多少時間在強迫行為上？每天做出強迫行為的頻率有多高？</p>
+            <label><input type="radio" name="q6" value="0"> 0 = 完全無強迫行為。</label>
+            <label><input type="radio" name="q6" value="1"> 1 = 輕微（少於1小時），或偶爾有。</label>
+            <label><input type="radio" name="q6" value="2"> 2 = 中度（1至3小時），或常常有。</label>
+            <label><input type="radio" name="q6" value="3"> 3 = 重度（多於3小時但不超過8小時），或非常高的頻率。</label>
+            <label><input type="radio" name="q6" value="4"> 4 = 極度（多於8小時），或幾乎無時無刻都有。</label>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. 您的強迫行為對社交、學業成就或工作能力有多大的妨礙？</p>
+            <label><input type="radio" name="q7" value="0"> 0 = 不會受妨礙。</label>
+            <label><input type="radio" name="q7" value="1"> 1 = 輕微。稍微妨礙社交或工作活動，但整體表現並未障礙。</label>
+            <label><input type="radio" name="q7" value="2"> 2 = 中度。確實妨礙社交或工作表現，但仍可應付。</label>
+            <label><input type="radio" name="q7" value="3"> 3 = 嚴重。導致社交或工作表現的障礙。</label>
+            <label><input type="radio" name="q7" value="4"> 4 = 極度。無能力應付社交或工作。</label>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. 假如被制止從事強迫行為時，您有什麼感覺？您會有多焦慮？</p>
+            <label><input type="radio" name="q8" value="0"> 0 = 沒有焦慮。</label>
+            <label><input type="radio" name="q8" value="1"> 1 = 輕微。假如強迫行為被阻止，只是稍微焦慮。</label>
+            <label><input type="radio" name="q8" value="2"> 2 = 中度。假如強迫行為被阻止，會有中等程度的焦慮，但是仍可以應付。</label>
+            <label><input type="radio" name="q8" value="3"> 3 = 嚴重。假如強迫行為被阻止，會明顯且困擾地增加焦慮。</label>
+            <label><input type="radio" name="q8" value="4"> 4 = 極度。假如有任何需要改變強迫行為的處置時，會導致極度地焦慮。</label>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. 您有多努力去對抗強迫行為？或嘗試停止強迫行為的頻率？</p>
+            <label><input type="radio" name="q9" value="0"> 0 = 一直不斷努力的對抗（或症狀很輕微，不需要積極地對抗）。</label>
+            <label><input type="radio" name="q9" value="1"> 1 = 大部分時間能嘗試著去對抗（超過一半的時間，我都在嘗試對抗）。</label>
+            <label><input type="radio" name="q9" value="2"> 2 = 只用點努力去對抗。</label>
+            <label><input type="radio" name="q9" value="3"> 3 = 屈服於所有的強迫行為，沒有嘗試去對抗它們，但有一點不甘心。</label>
+            <label><input type="radio" name="q9" value="4"> 4 = 完全願意屈服於強迫行為。</label>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. 您控制強迫行為的能力有多少？您停止強迫行為（儀式）的效果如何？</p>
+            <label><input type="radio" name="q10" value="0"> 0 = 完全能控制。我可以完全控制。</label>
+            <label><input type="radio" name="q10" value="1"> 1 = 大多能控制。只要一些努力與意志力，就能停止強迫行為。</label>
+            <label><input type="radio" name="q10" value="2"> 2 = 中等度控制。有時後控制強迫行為，有一些困難。</label>
+            <label><input type="radio" name="q10" value="3"> 3 = 控制力弱。只能忍耐耽擱一下時間，但最終還是必須完成強迫行為。</label>
+            <label><input type="radio" name="q10" value="4"> 4 = 完全無法控制。連耽擱一下的能力都沒有。</label>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" onclick="calculateScore()">計算總分</button>
+            <button type="button" id="btn-export" onclick="exportCSV()" style="display: inline-block;">匯出 CSV</button>
+        </div>
+    </form>
+
+    <div id="result-section" style="display: block;">
+        <h2>篩檢結果</h2>
+        <div class="score-display">強迫思考分數: <span id="score-obs">11</span> / 20</div>
+        <div class="score-display">強迫行為分數: <span id="score-comp">5</span> / 20</div>
+        <div class="total-score">全量表總分: <span id="score-total">16</span> / 40</div>
+        <div id="severity-display" class="severity-label" style="background-color: rgb(230, 126, 34);">Moderate (中度)</div>
+        <div id="severity-desc" class="desc">症狀明顯影響功能，需結構化治療（如CBT）。</div>
+    </div>
+</div>
+
+<script>
+    let resultData = null;
+
+    function getSelectedValue(name) {
+        const radios = document.getElementsByName(name);
+        for (let radio of radios) {
+            if (radio.checked) {
+                return parseInt(radio.value, 10);
+            }
+        }
+        return null;
+    }
+
+    function calculateScore() {
+        let obsScore = 0;
+        let compScore = 0;
+
+        for (let i = 1; i <= 10; i++) {
+            const val = getSelectedValue('q' + i);
+            if (val === null) {
+                alert(`請作答第 ${i} 題！`);
+                return;
+            }
+            if (i <= 5) {
+                obsScore += val;
+            } else {
+                compScore += val;
+            }
+        }
+
+        const totalScore = obsScore + compScore;
+        let category = "";
+        let bgColor = "";
+        let desc = "";
+
+        if (totalScore >= 0 && totalScore <= 7) {
+            category = "Subclinical / None (亞臨床狀態)";
+            bgColor = "#95a5a6";
+            desc = "無明顯症狀或症狀極輕微。";
+        } else if (totalScore >= 8 && totalScore <= 15) {
+            category = "Mild (輕度)";
+            bgColor = "#f1c40f";
+            desc = "症狀可控，可能需要心理教育。";
+        } else if (totalScore >= 16 && totalScore <= 23) {
+            category = "Moderate (中度)";
+            bgColor = "#e67e22";
+            desc = "症狀明顯影響功能，需結構化治療（如CBT）。";
+        } else if (totalScore >= 24 && totalScore <= 31) {
+            category = "Severe (重度)";
+            bgColor = "#e74c3c";
+            desc = "嚴重影響日常生活，建議藥物與心理治療並行。";
+        } else if (totalScore >= 32 && totalScore <= 40) {
+            category = "Extreme (極重度)";
+            bgColor = "#8e44ad";
+            desc = "幾乎無時無刻受症狀困擾，無法正常生活。";
+        }
+
+        document.getElementById('score-obs').innerText = obsScore;
+        document.getElementById('score-comp').innerText = compScore;
+        document.getElementById('score-total').innerText = totalScore;
+        
+        const sevDisplay = document.getElementById('severity-display');
+        sevDisplay.innerText = category;
+        sevDisplay.style.backgroundColor = bgColor;
+        
+        document.getElementById('severity-desc').innerText = desc;
+        
+        document.getElementById('result-section').style.display = 'block';
+        document.getElementById('btn-export').style.display = 'inline-block';
+
+        // 儲存資料供 CSV 匯出
+        resultData = {
+            timestamp: new Date().toLocaleString(),
+            obsScore: obsScore,
+            compScore: compScore,
+            totalScore: totalScore,
+            category: category,
+            desc: desc
+        };
+    }
+
+    function exportCSV() {
+        if (!resultData) return;
+
+        // 添加 BOM 讓 Excel 正確解析 UTF-8 中文
+        const bom = "\uFEFF";
+        let csvContent = bom + "填表時間,強迫思考分數,強迫行為分數,全量表總分,嚴重程度分類,說明\n";
+        
+        // 組合資料列
+        const row = [
+            `"${resultData.timestamp}"`,
+            resultData.obsScore,
+            resultData.compScore,
+            resultData.totalScore,
+            `"${resultData.category}"`,
+            `"${resultData.desc}"`
+        ].join(",");
+
+        csvContent += row;
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        
+        link.setAttribute("href", url);
+        link.setAttribute("download", "Y-BOCS_Screening_Result.csv");
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+
+</body></html>
